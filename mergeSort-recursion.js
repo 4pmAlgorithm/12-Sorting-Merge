@@ -6,22 +6,43 @@
 // 2. once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
 // 3. once the array has been merged back together, return the merged(and sorted)array
 
-function merge(arr){
-
-    let arr1 = []
-    let arr2 = []
-
-    if(arr.length >= 0){
-        let halfIdx = Math.floor(arr.length/2)
-        console.log(halfIdx)
-        arr1 = arr.slice(0, halfIdx)
-        arr2 = arr.slice(halfIdx, arr.length)
-       
-    }
-    return arr2
+function mergeRecursion(arr){
+    if(arr.length <=1) return arr;
+    let halfIdx = Math.floor(arr.length/2)
+    let arr1 = mergeRecursion(arr.slice(0, halfIdx))
+    let arr2 = mergeRecursion(arr.slice(halfIdx, arr.length))
+    return merge(arr1, arr2)
 }
 
-console.log(merge([2,3,4,22,33,44,55]))
+function merge(arr1, arr2){
+    
+    let i = 0;
+    let j = 0;
+    let result = [];
+
+    while ( i < arr1.length && j < arr2.length){
+        if(arr1[i] < arr2[j]){
+            result.push(arr1[i])
+            i++
+        }else{
+            result.push(arr2[j])
+            j++
+        }
+    }
+
+    while(arr1.length > i){
+        result.push(arr1[i])
+        i++
+    }
+
+    while(arr2.length > j){
+        result.push(arr2[j])
+        j++
+    }
+    return result
+}
+
+console.log(mergeRecursion([2,3,4,22,33,44,55]))
 
 
 
