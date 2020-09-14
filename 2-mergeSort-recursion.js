@@ -1,6 +1,5 @@
 // Recrusive Merge Sort
-//pseudo code
-
+// pseudo code
 
 // 1. break up the array into halves until you have arrays that are empty or have one element
 // 2. once you have smaller sorted arrays, merge those arrays with other sorted arrays until you are back at the full length of the array
@@ -43,17 +42,6 @@ function merge(arr1, arr2){
 }
 
 console.log(mergeRecursion([2,3,4,22,33,44,55]))
-
-
-
-
-
-
-
-
-
-
-
 
 
 
