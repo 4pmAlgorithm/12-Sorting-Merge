@@ -13,7 +13,7 @@ function mergeSort(arr){
         
     
     }
-    return result.push(mergeSort(arr.slice(1)))
+  //  return result.push(mergeSort(arr.slice(1)))
 }
 
 
